@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login PIN</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f0fdf4;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 768px;
+            padding: 16px;
+        }
+
+        .main-wrapper {
+            display: flex;
+            height: 100vh;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
+            background-color: #f0fdf4;
+            padding: 16px;
+        }
+
+        .content-wrapper {
+            display: flex;
+            width: 100%;
+            flex-direction: column;
+        }
+
+        @keyframes pulseBounce {
+
+            0%,
+            100% {
+                transform: scale(1) translateY(0);
+            }
+
+            50% {
+                transform: scale(1.05) translateY(-5px);
+            }
+        }
+
+        .illustration {
+            height: 160px;
+            width: auto;
+            margin: 0 auto;
+            display: block;
+            animation: pulseBounce 2.5s infinite ease-in-out;
+            transform-origin: center;
+        }
+
+        .header {
+            margin-bottom: 20px;
+            margin-top: 32px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .title {
+            text-align: center;
+            font-size: 18px;
+            font-weight: 600;
+            color: #111827;
+            margin-bottom: 8px;
+        }
+
+        .description {
+            text-align: center;
+            font-size: 12px;
+            font-weight: 500;
+            color: #9ca3af;
+        }
+
+        .form {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .input-group {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .input-wrapper {
+            position: relative;
+        }
+
+        .pin-input {
+            width: 100%;
+            border-radius: 16px;
+            border: 1px solid #9ca3af;
+            background-color: white;
+            padding: 12px 48px;
+            font-size: 14px;
+            color: #111827;
+            outline: none;
+            transition: all 0.2s ease;
+        }
+
+        .pin-input::placeholder {
+            color: #9ca3af;
+        }
+
+        .pin-input:focus {
+            border-color: #4ade80;
+            box-shadow: 0 0 0 2px rgba(74, 222, 128, 0.5);
+        }
+
+        .pin-input:invalid {
+            background-color: #fecaca;
+            color: #7f1d1d;
+            caret-color: #7f1d1d;
+        }
+
+        .pin-input:focus:invalid {
+            box-shadow: 0 0 0 2px rgba(127, 29, 29, 0.5);
+        }
+
+        .input-icon {
+            position: absolute;
+            top: 50%;
+            left: 16px;
+            transform: translateY(-50%);
+            color: #9ca3af;
+            font-size: 20px;
+            pointer-events: none;
+        }
+
+        .continue-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            border-radius: 16px;
+            background-color: #22c55e;
+            padding: 10px;
+            font-size: 14px;
+            font-weight: 600;
+            text-transform: uppercase;
+            color: white;
+            border: none;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .continue-button:hover {
+            background-color: #16a34a;
+        }
+
+        .continue-button:focus {
+            outline: none;
+            box-shadow: 0 0 0 2px rgba(74, 222, 128, 0.5);
+        }
+
+        .button-icon::after {
+            content: "›";
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .help-text {
+            margin-top: 12px;
+            text-align: center;
+            font-size: 12px;
+            color: #a3a3a3;
+        }
+
+        .forgot-link {
+            font-size: 12px;
+            font-weight: 600;
+            color: #22c55e;
+            text-decoration: none;
+        }
+
+        .forgot-link:hover {
+            color: rgba(34, 197, 94, 0.7);
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 12px;
+            }
+
+            .main-wrapper {
+                padding: 12px;
+            }
+
+            .illustration {
+                height: 140px;
+            }
+
+            .title {
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="main-wrapper">
+            <div class="content-wrapper">
+                <svg class="illustration" viewBox="0 0 160 160" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="80" cy="80" r="60" fill="#22c55e" opacity="0.1" />
+                    <circle cx="80" cy="80" r="40" fill="#22c55e" opacity="0.2" />
+                    <circle cx="80" cy="80" r="20" fill="#22c55e" opacity="0.3" />
+                    <path
+                        d="M80 50C65 50 53 62 53 77V83C53 98 65 110 80 110C95 110 107 98 107 83V77C107 62 95 50 80 50Z"
+                        fill="#22c55e" />
+                    <rect x="70" y="70" width="20" height="30" rx="2" fill="white" />
+                    <circle cx="80" cy="75" r="3" fill="#22c55e" />
+                </svg>
+
+                <div class="header">
+                    <h1 class="title">Masukkan 6 Digit PIN</h1>
+                    <p class="description">Masukkan 6 digit PIN yang telah Anda daftarkan sebelumnya</p>
+                </div>
+
+                <form class="form" id="pin-form">
+                    <div class="input-group">
+                        <div class="input-wrapper">
+                            <input type="password" id="pin" placeholder="6 Digit PIN" class="pin-input" maxlength="6"
+                                pattern="[0-9]{6}" required />
+                            <div class="input-icon"></div>
+                        </div>
+                    </div>
+                    <button type="submit" class="continue-button">
+                        <span>Lanjutkan</span>
+                        <span class="button-icon"></span>
+                    </button>
+                </form>
+
+                <p class="help-text">
+                    <a href="login-pin-forgot.html" class="forgot-link">Saya lupa PIN</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const form = document.getElementById('pin-form');
+        const pin = document.getElementById('pin');
+        form.addEventListener('submit', function (e) {
+            e.preventDefault();
+            const value = pin.value.trim();
+            if (/^\d{6}$/.test(value)) {
+                window.location.href = "dashboard.html";
+            } else {
+                alert("PIN harus terdiri dari 6 digit angka.");
+            }
+        });
+    </script>
+</body>
+
+</html>
